@@ -6,25 +6,20 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY } = process.env;
 const VideoGamesModel = require("./models/Videogame");
 const GenresModel = require("./models/Genres");
 
-// `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`
 // const sequelize = new Sequelize(
 //   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}`,
 //   {
-//     logging: false, // set to console.log to see the raw SQL queries
-//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-//     dialectOptions: {
-//       // ssl: {
-//       //   require: true,
-//       // },
-//     },
+//     logging: false,
+//     native: false,
 //   }
 // );
-const sequelize = new Sequelize(DB_DEPLOY, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
-const basename = path.basename(__filename);
 
+const sequelize = new Sequelize(DB_DEPLOY, {
+  logging: false,
+  native: false,
+});
+
+const basename = path.basename(__filename);
 const modelDefiners = [];
 
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
