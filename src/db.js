@@ -17,6 +17,11 @@ const GenresModel = require("./models/Genres");
 const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false,
   native: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+    },
+  },
 });
 
 const basename = path.basename(__filename);
